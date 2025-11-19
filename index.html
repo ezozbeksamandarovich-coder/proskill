@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProSkill IT Academy</title>
+</head>
+
+<body>
+    <style>
+
+/*=========== GLOBAL ===========*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    background:#0A0F1F;
+    color:#fff;
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeInMove .8s ease-out forwards;
+}
+
+@keyframes fadeInMove{
+    to{opacity:1;transform:translateY(0);}
+}
+
+img{user-select:none;}
+
+
+/*=========== NAVBAR ===========*/
+.navbar{
+    position:sticky;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 40px;
+    background:rgba(10,20,40,.55);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    z-index: 50;
+    opacity:0;
+    transform:translateY(-20px);
+    animation:navFade .9s ease-out forwards;
+}
+
+@keyframes navFade{
+    to{opacity:1;transform:translateY(0);}
+}
+
+.logo{
+    font-size:26px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#4EA8FF;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+}
+
+.nav-links a{
+    color:#c9d6ff;
+    text-decoration:none;
+    font-size:16px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#4EA8FF;
+}
+
+.mode-btn{
+    background:#4EA8FF;
+    border:none;
+    padding:8px 12px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.mode-btn:hover{
+    transform:translateY(-4px) scale(1.07);
+    box-shadow:0 0 15px rgba(78,168,255,.6);
+}
+
+/*=========== HERO ===========*/
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:70px 40px;
+    flex-wrap:wrap;
+    gap:40px;
+}
+
+.hero-text{
+    max-width:480px;
+    opacity:0;
+    transform:translateX(-40px);
+    animation:heroText .9s ease-out forwards;
+}
+
+@keyframes heroText{
+    to{opacity:1;transform:translateX(0);}
+}
+
+.hero-text h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero-text span{
+    color:#4EA8FF;
+}
+
+.hero-text p{
+    font-size:18px;
+    opacity:.85;
+}
+
+.cta-btn{
+    background:#4EA8FF;
+    padding:12px 20px;
+    border:none;
+    border-radius:6px;
+    margin-top:22px;
+    cursor:pointer;
+    font-size:17px;
+    transition:.25s;
+}
+
+.cta-btn:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 0 15px rgba(78,168,255,.6);
+}
+
+.hero-img{
+    opacity:0;
+    transform:translateX(40px);
+    animation:heroImg .9s ease-out forwards .15s;
+}
+
+@keyframes heroImg{
+    to{opacity:1;transform:translateX(0);}
+}
+
+.hero-img img{
+    width:330px;
+}
+
+
+/*=========== SECTIONS ===========*/
+.section{
+    padding:60px 40px;
+    opacity:0;
+    transform:translateY(40px);
+    animation:sectionFade .8s ease-out forwards;
+}
+
+@keyframes sectionFade{
+    to{opacity:1;transform:translateY(0);}
+}
+
+.section-title{
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+
+/*=========== COURSES ===========*/
+.course-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.course-card{
+    background:#11182E;
+    border:1px solid #23365B;
+    padding:22px;
+    border-radius:10px;
+    width:270px;
+    transition:.35s;
+}
+
+.course-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 22px rgba(78,168,255,.4);
+}
+
+
+/*=========== TEACHERS/STUDENTS ===========*/
+.profile-grid, .student-grid, .partner-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+}
+.profile-card:hover{color: #1388f6;
+    background-color: #001653;
+}
+.profile-card h3{
+    color: #4EA8FF;
+
+}
+.profile-card, .student-card, .partner-card{
+    background:#11182E;
+    border:1px solid #23365B;
+    width:240px;
+    padding:18px;
+    border-radius:10px;
+    transition:.35s;
+    text-align:center;
+}
+
+.profile-card img, .student-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:10px;
+}
+.partner-card:hover{
+    background-color: #005db4;  
+    transition: 1s;
+}
+.partner-card{
+    height:100px;
+    display:flex;
+    
+    align-items:center;
+    justify-content:center;
+}
+
+.partner-card img{
+    max-width:100%;
+    max-height:80%;
+    object-fit:contain;
+}
+
+.profile-card:hover,
+.student-card:hover,
+.partner-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 22px rgba(78,168,255,.4);
+}
+
+
+/*=========== FOOTER ===========*/
+footer{
+    background:#0C1224;
+    padding:40px;
+    text-align:center;
+    margin-top:70px;
+}
+
+
+/*=========== RESPONSIVE ===========*/
+@media(max-width:900px){
+    .hero{
+        text-align:center;
+        justify-content:center;
+    }
+
+    .hero-img img{
+        width:270px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+    .profile-card, .student-card, .partner-card{
+        width:100%;
+    }
+
+    .course-card{
+        width:100%;
+    }
+
+    .hero-text h1{
+        font-size:32px;
+    }
+}
+/* CONTACT PANEL */
+.contact-panel {
+    position: fixed;
+    top: 0;
+    left: -420px; /* yashirin holat */
+    width: 420px;
+    height: 100%;
+    background: #0d1325;
+    border-right: 1px solid #1f2a48;
+    padding: 30px;
+    box-shadow: 5px 0 20px rgba(0,0,0,0.4);
+    transition: 0.45s ease;
+    z-index: 9999;
+}
+
+.contact-panel.open {
+    left: 0; /* chapdan chiqib keladi */
+}
+
+.contact-content h2 {
+    margin-bottom: 15px;
+    color: #4EA8FF;
+}
+/* CARD ichidagi linklarni o‘chirish + rangni matn rangiga moslash */
+.course-card a,
+.profile-card a,
+.student-card a,
+.partner-card a,
+.section a {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-weight: inherit;
+}
+
+.course-card a:hover,
+.profile-card a:hover,
+.student-card a:hover,
+.partner-card a:hover,
+.section a:hover {
+    color: #4EA8FF !important;  /* hoverda engil moviy */
+}
+/* SHAROITLAR BO‘LIMI */
+.conditions-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.condition-card{
+    background: #0F152A;
+    border: 1px solid rgba(78,168,255,0.25);
+    padding: 22px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 0 transparent;
+}
+
+.condition-card h3{
+    color: #4EA8FF;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.condition-card p{
+    color: #cfd8ff;
+    line-height: 1.55;
+}
+
+.condition-card:hover{
+    transform: translateY(-6px);
+    border-color: #4EA8FF;
+    box-shadow: 0 0 16px rgba(78,168,255,0.35);
+}
+
+.contact-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: 1px solid #23365B;
+    background: #101830;
+    color: #fff;
+}
+
+.send-btn {
+    width: 100%;
+    background: #4EA8FF;
+    border: none;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.25s;
+}
+/*=========== ROYAL BLUE LIGHT MODE ===========*/
+body.light{
+    background: var(--light-bg);      /* yumshoq ko‘k fond */
+    color: var(--text-dark);          /* quyuq-ko‘k text */
+}
+
+/* NAVBAR */
+body.light .navbar{
+    background: rgba(255,255,255,0.35);
+    border-bottom:1px solid #bcd5ff;
+}
+
+body.light .logo span{
+    color:#0F1E54;
+}
+
+body.light .nav-links a{
+    color:#0F1E54;
+}
+
+body.light .nav-links a:hover{
+    color:#174DFF;
+}
+
+/* BUTTONS */
+body.light .cta-btn,
+body.light .send-btn{
+    background: var(--blue-light);
+    color: #ffffff;
+    box-shadow:0 0 8px rgba(0,80,255,0.4);
+}
+
+body.light .cta-btn:hover,
+body.light .send-btn:hover{
+    background: var(--blue-soft);
+}
+
+/* CARDS (kurslar, teachers, students, partners) */
+body.light .course-card,
+body.light .profile-card,
+body.light .partner-card,
+body.light .contact-panel,
+body.light .start-panel{
+    background: var(--light-card);
+    border-color:#bcd5ff;
+    color:#0F1E54;
+}
+
+/* FOOTER */
+body.light footer,
+body.light .footer{
+    background:#cfe0ff;
+    color:#0F1E54;
+    border-top:1px solid #bcd5ff;
+}
+:root{
+    --blue-dark: #0F1E54;
+    --blue-mid: #174DFF;
+    --blue-light: #4EA8FF;
+    --blue-soft: #6BB7FF;
+
+    --light-bg: #E6F1FF;
+    --light-card: #FFFFFF;
+
+    --text-light: #FFFFFF;
+    --text-dark: #0F1E54;
+}
+
+
+.send-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(78,168,255,0.6);
+}
+.footer {
+    text-align: center;
+    padding: 25px 0;
+    background: #050a18;
+    color: #9bb4d1;
+    font-size: 15px;
+    margin-top: 40px;
+    border-top: 1px solid #1a253d;
+}
+.course-card{
+   color: #005db4;
+}
+.footer p {
+    margin: 5px 0;
+}
+.course-card:hover{
+    background-color: #08253f;
+    transition: 1s;
+    
+}
+.course-card:hover{
+    color: #00cdfb;
+    transition: 555ms;
+}
+.course-card h3{
+color: #2696ff;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.social-icons img {
+    width: 42px;
+    height: 42px;
+    filter: grayscale(100%) brightness(0%);
+    transition: 0.25s ease;
+    cursor: pointer;
+    background: transparent;
+}
+
+.social-icons img:hover {
+    transform: scale(1.12);
+}
+/* MAP STYLE */
+.map-wrapper {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(78,168,255,0.25);
+    border: 1px solid #23365B;
+    margin-top: 25px;
+    animation: fadeMap 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeMap {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#map {
+    margin-top: 40px;
+}
+
+</style>
+<!-- LOGO ANIMATION OVERLAY -->
+<div id="logo-overlay">
+  <img src="" alt="ProSkill">
+</div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">ProSkill <span>IT Academy</span></div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Bosh sahifa</a></li>
+            <li><a href="#courses">Kurslar</a></li>
+            <li><a href="#teachers">O‘qituvchilar</a></li>
+            <li><a href="#contact">Bog‘lanish</a></li>
+        </ul>
+
+        <button id="modeToggle" class="mode-btn">🌙</button>
+    </nav>
+
+
+    <!-- HERO -->
+    <header id="home" class="hero">
+        <div class="hero-text">
+            <h1>Kelajakni <span>ProSkill</span> bilan yarating.</h1>
+            <p>IT va Ingliz tili kurslari — Dark Blue Edition.</p>
+            <a href="#contact"><button class="cta-btn">Boshlash</button></a>
+        </div>
+
+        <div class="hero-img">
+            <img src="./images/hero.png" alt="">
+        </div>
+    </header>
+
+
+    <!-- COURSES -->
+    <a href="#contact"><section id="courses" class="section">
+        <h2 class="section-title">Kurslar</h2>
+
+        <div class="course-grid">
+
+            <div class="course-card">
+                <h3>KOMPYUTER SAVODXONLIGI</h3>
+                <br>
+                <p>Kurs kompyuter bilan ishlash bo‘yicha asosiy ko‘nikmalarni egallamoqchi bo‘lgan 9 yosh va undan katta yoshdagilar uchun mo‘ljallangan. Kurs davomida kompyuter va dasturlar bilan ishlash, internetdan samarali foydalanish, Microsoft Office ilovalari (Word, Excel, PowerPoint) hamda elektron pochta orqali muloqot qilish bo‘yicha amaliy mashg‘ulotlar o‘tkaziladi. Kurs oxirida kundalik hayotda va ish jarayonida kompyuterni mustaqil va samarali ishlatish ko‘nikmalariga ega bo‘lasiz.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>
+FRONT-END DASTURLASH</h3><br>
+                <p>
+FRONT-END DASTURLASH 
+Ushbu kurs 9 yosh va undan kattalar uchun mo‘ljallangan bo‘lib, zamonaviy veb-dasturlashni o‘rganishni istaganlar uchun ideal tanlovdir. Kurs davomida HTML, CSS, JavaScript, va React JS texnologiyalari bosqichma-bosqich o‘rgatiladi. Nazariy darslar amaliy loyihalar bilan boyitilib, talabalar haqiqiy veb-sayt va ilovalarni yaratish bo‘yicha ko‘nikmalarga ega bo‘lishadi. Kursni muvaffaqiyatli tugatgach, talabalar mustaqil dasturlar ishlab chiqish imkoniyatiga ega bo‘ladilar..</p>
+            </div>
+
+            <div class="course-card">
+                <h3>
+BACK-END DASTURLASH</h3><br>
+                <p>Ushbu kurs 9 yosh va undan kattalar uchun mo'ljallangan bo‘lib, Java dasturlash tilida back-end dasturlashni o‘rgatadi. Kurs davomida o'quvchilar server tomonidagi dasturlarni yaratish, ma'lumotlar bazasi bilan ishlash, API ishlab chiqish va tizimni optimallashtirish bo‘yicha amaliy ko‘nikmalarni egallashadi. Nazariy darslar va real loyiha ishlariga asoslangan mashg‘ulotlar orqali o'quvchilar back-end dasturchi sifatida ishlash uchun zarur bilimlarni o‘zlashtiradilar.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>
+MOBIL DASTURLASH
+                </h3><br>
+                <p>
+MOBIL DASTURLASH
+Kurs 9 yosh va undan kattalar uchun mo‘ljallangan bo‘lib, Flutter orqali mobil ilovalar yaratishni o‘rgatadi. Kurs davomida o'quvchilar Flutter platformasida ilova yaratish, interfeys dizayni, ma'lumotlar bazasi bilan ishlash va boshqa mobil dasturlashning asosiy ko‘nikmalarini egallaydi. Amaliy mashg‘ulotlar orqali o‘quvchilar real ilovalar yaratishni o‘rganib, mobil dasturlash sohasida mustahkam bilimga ega bo‘ladilar. Kursni muvaffaqiyatli tamomlagan talabalar malakali dasturchilarga aylanadi.</p>
+            </div>
+
+<div class="course-card">
+                <h3>Python dasturlash
+                </h3><br>
+                <p>Python dasturlash tilini o‘rgatish kursi. Data Science, avtomatlashtirish va veb dasturlashda Python’ni qo‘llash asoslari o‘rgatiladi. Ushbu kurs yangi boshlovchilar va dasturlash bilan qiziqqan har qanday yoshdagi o‘quvchilar uchun mos.</p>
+            </div>
+
+
+
+<div class="course-card">
+                <h3>
+PROJECT MANAGEMENT
+                </h3><br>
+                <p>Ushbu kursimiz kursimiz nisbatan kattaroq yoshdagi o'smirlar uchun mo'ljallangan. Kursda siz har xil AyTi va boshqa loyihalarda menejer bo'lish ko'nikmalarini egallaysiz. Loyihani qabu qilish, uni boshqarishdan tortib, uni loyiha rahbariga muvaffaqiyatli topshirishgacha bo'lgan bilimlarni chuqur egallaysiz.
+                </p>
+            </div>
+
+
+     
+
+<div class="course-card">
+                <h3>ROBOTOTEXNIKA
+                </h3><br>
+                <p>Ushbu kurs 17 yoshgacha bo‘lgan bolalar uchun mo‘ljallangan bo‘lib, ularga robototexnikaning asosiy tushunchalari va amaliyotlarini o‘rgatadi. Dastur davomida o‘quvchilar robotlarni yig‘ish, dasturlash va ularning harakatlarini boshqarishni o‘rganadilar. Kurs ijodkorlikni rivojlantirish, texnologik fikrlashni shakllantirish va amaliy ko‘nikmalarni oshirishga qaratilgan. Mashg‘ulotlar interaktiv va qiziqarli tarzda tashkil etilgan.</p>
+            </div>
+
+<div class="course-card">
+                <h3>BUXGALTERIYA
+                </h3><br>
+                <p>
+Ushbu 3 oylik intensiv kursda siz moliyaviy hisobotlar, balanslar, daromad va xarajatlar hisoboti, pul oqimlari hamda soliqqa oid asosiy jarayonlarni o‘rganasiz. Kurs nazariy bilimlarni amaliy mashg‘ulotlar bilan mustahkamlab, sizga real moliyaviy holatlar bilan ishlash imkonini beradi. Tugatgandan so‘ng, buxgalteriya sohasida ishlash uchun yetarli bilim va ko‘nikmalarga ega bo‘lasiz.</p>
+            </div>
+
+<div class="course-card">
+                <h3>MOBILOGRAFIYA
+                </h3><br>
+                <p>
+
+Ushbu kurs zamonaviy smartfonlar yordamida professional darajadagi foto va videolar yaratishni o‘rgatadi. 3 oy davomida siz kompozitsiya, yorug‘lik, tahrirlash va kontent yaratish sirlarini o‘zlashtirasiz. Kurs amaliy mashg‘ulotlarga boy bo‘lib, har bir darsda ijodiy va texnik ko‘nikmalaringizni rivojlantirish imkoniyatiga ega bo‘lasiz. Oxirida siz sifatli kontent tayyorlash va uni samarali taqdim etishni bilib olasiz.</p>
+            </div>
+
+<div class="course-card">
+                <h3>INGLIZ TILÌ
+                </h3><br>
+                <p>INGLIZ TILI
+Ushbu kurs 10 oy davomida ingliz tilida erkin muloqot qilish ko‘nikmalarini rivojlantirishga qaratilgan. Kurs davomida o'quvchilar kundalik mavzularda gapirish, tinglab tushunish va talaffuzni yaxshilash ustida ishlashadi. Darslar interaktiv mashg'ulotlar, rolli o‘yinlar va guruh mashg‘ulotlari orqali o‘tkaziladi. Kurs oxirida o'quvchilar o‘z fikrlarini ravon va ishonch bilan ifodalash ko‘nikmasiga ega bo‘ladilar.</p>
+            </div>
+
+
+            <div class="course-card">
+                <h3>MATEMATIKA
+                </h3><br>
+                <p>Ushbu kurs 10 oy davomida o‘quvchilarda mantiqiy fikrlash, formulalarni tushunish va real hayotga tadbiq qilish ko‘nikmalarini rivojlantiradi. Darslar misollar yechish, amaliy vazifalar, guruhli ishlash va mantiqiy mashqlar orqali olib boriladi. Kurs yakunida o‘quvchilar hisob-kitoblarni aniq bajarish, murakkab masalalarni tahlil qilish va matematik fikrlashni samarali qo‘llash darajasiga yetadilar.</p>
+            </div>
+
+            <div class="course-card">
+                <h3>IELTS
+                </h3><br>
+                <p>Ushbu 8 oylik kurs o‘quvchilarga IELTS imtihoni uchun zarur bo‘lgan akademik til ko‘nikmalarini beradi. Darslar Reading, Listening, Writing va Speaking bo‘yicha strategiyalar, bandni oshirish usullari va real test tahlillari yordamida olib boriladi. Kurs yakunida o‘quvchilar imtihonda yuqori natija olish uchun yetarli tayyorgarlikka ega bo‘ladilar.</p>
+            </div>
+
+
+            <div class="course-card">
+                <h3>CEFR
+                </h3><br>
+                <p>Ushbu 6 oylik CEFR kursi o‘quvchilarning umumiy ingliz tilida muloqot qilish, matnlarni tushunish va grammatikani to‘g‘ri qo‘llash ko‘nikmalarini rivojlantiradi. Darslar A1–B2 darajalar bo‘yicha bosqichma-bosqich o‘rgatiladi, interaktiv mashqlar, suhbatlar va amaliy topshiriqlar bilan boyitiladi. Kurs yakunida o‘quvchilar tilni kundalik hayotda erkin qo‘llash darajasiga erishadilar.</p>
+            </div>
+
+
+            <div class="course-card">
+                <h3>RUS TILI
+                </h3><br>
+                <p>Ushbu 8 oylik rus tili kursi kundalik muloqot, so‘z boyligi, grammatik asoslar va to‘g‘ri talaffuzni rivojlantirishga qaratilgan. Darslar suhbat mashqlari, matn bilan ishlash, tinglab tushunish va rolli vaziyatlar orqali olib boriladi. Kurs yakunida o‘quvchilar rus tilida sodda va tushunarli tarzda fikr bildira oladigan darajaga yetadilar.</p>
+            </div>
+
+   </div></a>
+    </section>
+    <!-- TEACHERS -->
+    <section id="teachers" class="section">
+        <h2 class="section-title">Bizning O‘qituvchilar</h2>
+
+        <div class="profile-grid">
+
+            <div class="profile-card">
+                <img src="https://proskill.uz/wp-content/uploads/2025/09/tg_image_515339057.jpeg">
+                <h3>Amirxon O'rinboyev</h3>
+                <br>
+                <p>Mutaxasisligi:
+
+Dasturchi (Backend / Web Development).
+
+Tajribasi: 4 yildan ortiq. Quyidagilardan foydalanib turli loyihalarda ishlagan:
+aiogram, Django, FastAPI
+Android ilovalar (Java)
+HTML, CSS, JS, Django
+PostgreSQL, SQLite
+Markazdagi roli: “Python Backend” kursi mentori.</p>
+            </div>
+
+            <div class="profile-card">
+                <img src="https://proskill.uz/wp-content/uploads/2025/03/tg_image_2889865209.jpeg">
+                <h3>Davlatnazar Bekchanov</h3>
+                <br>
+
+                <p>Mutaxassisligi: Ingliz tilini oʻqitish.
+
+Tajribasi: Oʻqitish boʻyicha 5 yillik tajriba. Yevropada ta’lim olgan hamda Polshadagi Amerika kompaniyalarida turli lavozimlarda tajriba orttirgan.
+
+Markazdagi roli: O‘quvchilarning ingliz tilida ravon va ishonchli gapirish ko‘nikmalarini rivojlantirishga yordam berish. Shuningdek, ularning Yevropada to‘g‘ri universitet va kasb tanlashlariga yo‘l-yo‘riq ko‘rsatib, oliy ta’lim olish jarayonida qo‘llab-quvvatlash.</p>
+            </div>
+
+            <div class="profile-card">
+                <img src="https://proskill.uz/wp-content/uploads/2025/09/tg_image_412352170-2045x2048.jpeg  ">
+                <h3>Javohir Rajabboyev</h3>
+                <br>
+                <p>Mutaxassisligi: Ingliz tilini oʻqitish.
+
+Tajribasi: 4 yillik tajribaga eja CEFR va IELTS o’qituvchisi. Bakalavr talimni tugatgan hamda hozirgi kunda Magistrant. Urgench branch of Toshkent Medical Universityda 2 yildan beri Ingliz tili o’qituvchisi vasifasida ishlaydi.
+
+Natijalari: CEFR(multilevel) bo’yicha 2 karra C1 sohibi, IELTS 6.5.
+
+Markazdagi roli: O’quvchilarni CEFR va IELTS imtihonlariga tayyorlash,bilim malakalarini oshirish va o’qitish.</p>
+            </div>
+
+            
+            <div class="profile-card">
+                <img src="https://proskill.uz/wp-content/uploads/2025/03/tg_image_274359359-2048x2048.jpeg ">
+                <h3>Xushnudbek Salimov</h3>
+                <br>
+
+                <p>Mutaxasisligi: Iqtisodiyot (tarmoqlar va sohalar bo’yicha). Iqtisodchi
+
+Tajribasi: 3 yil. 2022 yildan hozirgacha O’z DXA Urganch filiali bosh hisobchisi. 10 dan ortiq xususiy korxona va mchj larning buxgalteriya  va soliq hisobotlarini yuritib kelmoqda.
+
+Markazdagi roli: “Buxgalteriya noldan balansgacha +1C” kursi o’qituvchisi.
+</p>
+            </div>
+
+        <div class="profile-card">
+                <img src="https://proskill.uz/wp-content/uploads/2025/09/tg_image_2956952746-2044x2048.jpeg">
+                <h3>Shohnurbek Samandarov</h3>
+                <br>
+                <p>Mutaxassisligi: Matematika fanini oʻqitish
+
+Tajribasi: 4 yillik Matematika fani boʻyicha repititorlik va maktablarda matematika fani oʻqituvchisi. Koʻplab o’quvchilari OTM talabasi boʻlishgan.
+
+Markazdagi roʻli: Oʻquvchilarimizga matematika fani boʻyicha kerakli bilimlarni berish, milliy sertifikat va OTMga tayyorlash
+</p>
+            </div>
+
+        </div>
+    </section>
+
+
+        </div>
+    </section>
+    <!-- SHAROITLAR BO‘LIMI -->
+<section id="conditions" class="section">
+    <h2 class="section-title">Sharoitlar va Imkoniyatlar</h2>
+
+    <div class="conditions-grid">
+
+        <div class="condition-card">
+            <h3>Shaxsiylashtirilgan yondashuv</h3>
+            <p>
+                ProSkill IT Academy har bir o‘quvchining o‘ziga xos o‘rganish usuli va ehtiyojlarini inobatga olib,
+                individual yondashuvni qo‘llaydi. O‘qituvchilar har bir o‘quvchi bilan alohida ishlaydi va bilim
+                darajasiga mos topshiriqlar beradi.
+            </p>
+        </div>
+
+        <div class="condition-card">
+            <h3>Zamonaviy o‘quv xonalari</h3>
+            <p>
+                Akademiyamizdagi barcha auditoriyalar zamonaviy texnik jihozlar bilan to‘liq ta’minlangan.
+                Kompyuterlar, monitorlar va interaktiv qurilmalar yordamida o‘quvchilar amaliy bilimlarni
+                chuqur o‘zlashtirish imkoniga ega bo‘ladilar.
+            </p>
+        </div>
+
+        <div class="condition-card">
+            <h3>Amaliy loyihalar va stajirovka</h3>
+            <p>
+                O‘quvchilar real loyihalarda ishtirok etib, haqiqiy tajriba to‘plashadi. Shuningdek,
+                hamkor IT kompaniyalarda stajirovka imkoniyatlari yaratilgan bo‘lib, bu kelajakda ish topish
+                imkoniyatlarini yanada kengaytiradi.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners" class="section">
+    <h2 class="section-title">Hamkorlarimiz</h2>
+
+    <div class="partner-grid">
+
+        <a href="https://it-park.uz/"><div class="partner-card">
+            <img src="https://api.logobank.uz/media/logos_png/IT_park-01.png" alt="partner">
+        </div>
+        </a>
+        <a href="https://startupgarage.uz/"><div class="partner-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvt1_ecvqaInaJTn3NK43F68FGc9exFCwCog&s" alt="partner">
+        </div>
+        </a>
+        <a href="https://mohirlar.uz/"><div class="partner-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmQbUlOsH_KjxVhP6xnWpLCdizuBV4Wol97A&s" alt="partner">
+        </div>
+</a>
+        <a href="https://bilgi.uz/uz/"><div class="partner-card">
+            <img src="https://aloqabank.uz/upload/iblock/a61/9t6hcegwrg88uclknpqxxydkmze9sczd/bilgi_big.webp" alt="partner">
+        </div>
+        </a>
+         <a href="https://proskill-chaqmoq.onrender.com/"><div class="partner-card">
+            <img src="./chaqmoq.png" alt="partner">
+        </div>
+        </a>
+    </div>
+    <div class="social-icons">
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/proskilluz/" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/87/87390.png"
+             data-hover="https://cdn-icons-png.flaticon.com/512/1384/1384063.png">
+    </a>
+
+    <!-- YouTube -->
+    <a href="https://www.youtube.com/@ProSkillITAcademy" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png"
+             data-hover="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+    </a>
+
+    <!-- Telegram -->
+    <a href="t.me/proskilluz" class="icon">
+        <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/messaging-video-meeting/telegram-1-h0kkhs6q8djfzchuqrz5aq.png/telegram-1-s4w3q19s8jvfn6fou3j8.png?_a=DATAg1AAZAA0"
+             data-hover="https://static.vecteezy.com/system/resources/previews/023/986/562/non_2x/telegram-logo-telegram-logo-transparent-telegram-icon-transparent-free-free-png.png">
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/company/proskill-it-academy" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/49/49068.png"
+             data-hover="https://cdn-icons-png.flaticon.com/512/1384/1384014.png">
+    </a>
+
+    <!-- Browser / Google / Website -->
+    <a href="https://proskill.uz/" class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/535/535228.png"
+             data-hover="https://cdn-icons-png.flaticon.com/512/300/300221.png">
+    </a>
+
+</div>
+
+</section>
+<!-- MAP SECTION -->
+<section id="map" class="section">
+    <h2 class="section-title">Manzilimiz</h2>
+
+    <div class="map-wrapper">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d600.4083083531771!2d60.35674149999999!3d41.998889899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfd625c3fa1583%3A0x89eacdd5bdf4b77b!2sProSkill!5e0!3m2!1sru!2s!4v1700000000000!5m2!1sru!2s" 
+            width="100%" 
+            height="420" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+<!-- CONTACT PANEL -->
+<div id="contactPanel" class="contact-panel">
+    <div class="contact-content">
+        <h2>Bog‘lanish</h2>
+
+        <p><strong>Telefon:</strong> +998 77 021 71 00</p>
+        <p><strong>Email:</strong> info@proskill.uz</p>
+
+        <h3>Murojaat Formasi</h3>
+
+        <input type="text" placeholder="Ism" />
+        <input type="text" placeholder="Familiya" />
+        <input type="text" placeholder="Telefon raqam" />
+        <input type="email" placeholder="Email" />
+        
+        <button class="send-btn">Yuborish</button>
+    </div>
+</div>
+
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <h3>ProSkill IT Academy</h3>
+        <p>Hazorasp ta'lim markazi</p>
+        <p>📞 +998 77 021 71 00</p>
+        
+    </footer>
+    <footer class="footer">
+  <p>Mualliflik huquqi © 2025 Barcha huquqlar himoyalangan.</p>
+  <p>Developer: Samandarov Ezozbek</p>
+</footer>
+
+<script>
+    // Bog‘lanish tugmasiga bosilganda panel chiqadi
+    document.querySelector('a[href="#contact"]').addEventListener("click", function(e) {
+        e.preventDefault();
+        document.getElementById("contactPanel").classList.add("open");
+    });
+
+    // Panel tashqarisiga bosganda yopilmaydi, hozircha
+    const btn = document.getElementById("modeToggle");
+
+btn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+});
+
+</script>
+<script>
+const modeBtn = document.querySelector(".mode-btn");
+const body = document.body;
+
+modeBtn.addEventListener("click", () => {
+    if(body.classList.contains("dark")){
+        body.classList.remove("dark");
+        body.classList.add("light");
+        modeBtn.textContent = "🌙"; // yana qaytishi uchun
+    }else{
+        body.classList.remove("light");
+        body.classList.add("dark");
+        modeBtn.textContent = "☀️";
+    }
+});
+</script>
+<script>
+document.querySelectorAll('.social-icons img').forEach(img => {
+    const original = img.src;
+    const hover = img.getAttribute('data-hover');
+
+    img.addEventListener("mouseenter", () => {
+        img.style.filter = "none";
+        img.src = hover;
+    });
+
+    img.addEventListener("mouseleave", () => {
+        img.src = original;
+        img.style.filter = "grayscale(100%) brightness(0%)";
+    });
+});
+</script>
+
+    <script src="proskill.js"></script>
+</body>
+</html>
